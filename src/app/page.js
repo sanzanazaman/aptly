@@ -893,7 +893,7 @@ export default function App() {
         {/* NAV */}
         <nav className="nav">
           <div className="nav-logo" onClick={restart} style={{ cursor: "pointer" }}>
-            Room Intent
+            aptly
           </div>
           <div className="nav-tag">Design Intake</div>
         </nav>
