@@ -895,7 +895,22 @@ export default function App() {
           <div className="nav-logo" onClick={restart} style={{ cursor: "pointer" }}>
             aptly
           </div>
-          <div className="nav-tag">Design Intake</div>
+          <a
+  href="https://www.linkedin.com/in/sanzanazaman"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="opacity-60 hover:opacity-100 transition mr-6"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    <path d="M20.447 20.452H16.9V14.89c0-1.328-.025-3.037-1.849-3.037-1.849 0-2.131 1.445-2.131 2.94v5.659H9.373V9h3.405v1.561h.049c.474-.9 1.637-1.849 3.369-1.849 3.601 0 4.267 2.37 4.267 5.455v6.285zM5.337 7.433a1.98 1.98 0 1 1 0-3.96 1.98 1.98 0 0 1 0 3.96zM6.915 20.452H3.759V9h3.156v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/>
+  </svg>
+</a>
         </nav>
 
         {/* LANDING */}
