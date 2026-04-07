@@ -833,9 +833,67 @@ function BriefPage({ form, onRestart }) {
       </div>
 
       <div className="brief-actions fade-up-delay2">
-        <button className="btn-primary">Submit</button>
-        <button className="btn-secondary" onClick={onRestart}>Start Over</button>
-      </div>
+
+  <form action="https://formspree.io/f/mjgplpop" method="POST">
+
+    <p style={{ marginBottom: "12px", opacity: 0.7 }}>
+      where should we send your design brief?
+    </p>
+
+    <input
+      type="email"
+      name="email"
+      placeholder="your email"
+      required
+      style={{
+        width: "100%",
+        padding: "12px",
+        marginBottom: "12px",
+        border: "1px solid #ddd",
+        borderRadius: "6px"
+      }}
+    />
+
+    {/* hidden data from form */}
+    <input type="hidden" name="space" value={form.space || ""} />
+    <input type="hidden" name="budget" value={form.budget || ""} />
+    <input type="hidden" name="timeline" value={form.timeline || ""} />
+
+    <input
+      type="hidden"
+      name="colors"
+      value={form.colorPreferences?.join(", ") || ""}
+    />
+
+    <input
+      type="hidden"
+      name="materials"
+      value={form.materialsLiked?.join(", ") || ""}
+    />
+
+    <input
+      type="hidden"
+      name="goals"
+      value={form.goals?.join(", ") || ""}
+    />
+
+    <input
+      type="hidden"
+      name="notes"
+      value={form.finalNotes || ""}
+    />
+
+    <button className="btn-primary" type="submit">
+      get your design brief
+    </button>
+
+  </form>
+
+  <button className="btn-secondary" onClick={onRestart}>
+    Start Over
+  </button>
+
+</div>
     </div>
   );
 }
