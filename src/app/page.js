@@ -832,10 +832,13 @@ function BriefPage({ form, onRestart }) {
         </div>
       </div>
 
-      <div className="brief-actions fade-up-delay2">
 
-  <form action="https://formspree.io/f/mjgplpop" method="POST">
-
+    <div className="brief-actions fade-up-delay2">
+  <form
+    action="https://formspree.io/f/mjgplpop"
+    method="POST"
+    style={{ flex: 1 }}
+  >
     <p style={{ marginBottom: "12px", opacity: 0.7 }}>
       where should we send your design brief?
     </p>
@@ -850,49 +853,60 @@ function BriefPage({ form, onRestart }) {
         padding: "12px",
         marginBottom: "12px",
         border: "1px solid #ddd",
-        borderRadius: "6px"
+        borderRadius: "6px",
+        fontSize: "16px",
+        background: "transparent"
       }}
     />
 
-    {/* hidden data from form */}
+    {/* individual hidden fields */}
     <input type="hidden" name="space" value={form.space || ""} />
+    <input type="hidden" name="status" value={form.isOwner ? "Owner" : "Renter"} />
     <input type="hidden" name="budget" value={form.budget || ""} />
     <input type="hidden" name="timeline" value={form.timeline || ""} />
+    <input type="hidden" name="styles" value={form.styleDirection?.join(", ") || ""} />
+    <input type="hidden" name="colors" value={form.colorPreferences?.join(", ") || ""} />
+    <input type="hidden" name="materials" value={form.materialsLiked?.join(", ") || ""} />
+    <input type="hidden" name="goals" value={form.goals?.join(", ") || ""} />
+    <input type="hidden" name="furnitureDetails" value={form.furnitureDetails || ""} />
+    <input type="hidden" name="finalNotes" value={form.finalNotes || ""} />
 
+    {/* owner / renter details */}
+    <input type="hidden" name="paintingOk" value={form.paintingOk ? "Yes" : "No"} />
+    <input type="hidden" name="builtInsPossible" value={form.builtInsPossible ? "Yes" : "No"} />
+    <input type="hidden" name="workspaceNeeded" value={form.workspaceNeeded ? "Yes" : "No"} />
+
+    {/* one readable summary block */}
     <input
       type="hidden"
-      name="colors"
-      value={form.colorPreferences?.join(", ") || ""}
-    />
-
-    <input
-      type="hidden"
-      name="materials"
-      value={form.materialsLiked?.join(", ") || ""}
-    />
-
-    <input
-      type="hidden"
-      name="goals"
-      value={form.goals?.join(", ") || ""}
-    />
-
-    <input
-      type="hidden"
-      name="notes"
-      value={form.finalNotes || ""}
+      name="summary"
+      value={`Space: ${form.space || ""}
+Status: ${form.isOwner ? "Owner" : "Renter"}
+Budget: ${form.budget || ""}
+Timeline: ${form.timeline || ""}
+Styles: ${form.styleDirection?.join(", ") || ""}
+Colors: ${form.colorPreferences?.join(", ") || ""}
+Materials: ${form.materialsLiked?.join(", ") || ""}
+Goals: ${form.goals?.join(", ") || ""}
+Furniture to keep: ${form.furnitureDetails || ""}
+Painting OK: ${form.paintingOk ? "Yes" : "No"}
+Built-ins possible: ${form.builtInsPossible ? "Yes" : "No"}
+Workspace needed: ${form.workspaceNeeded ? "Yes" : "No"}
+Additional notes: ${form.finalNotes || ""}`}
     />
 
     <button className="btn-primary" type="submit">
-      get your design brief
+      submit your design brief
     </button>
-
   </form>
 
-  <button className="btn-secondary" onClick={onRestart}>
+  <button
+    className="btn-secondary"
+    type="button"
+    onClick={onRestart}
+  >
     Start Over
   </button>
-
 </div>
     </div>
   );
